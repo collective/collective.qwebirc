@@ -6,5 +6,8 @@ setup(
     name='collective.qwebirc',
     packages=find_packages(),
     namespace_packages=['collective'],
-    install_requires='Twisted'
+    install_requires=[
+        'Twisted',
+        'setuptools'
+    ]
 )
