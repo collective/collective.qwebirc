@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # this entire thing is a hack and badly needs reimplementing
 import bin.compile
+bin.compile.main()
 bin.compile.vcheck()
 
 DEFAULT_PORT = 9090
