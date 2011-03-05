@@ -4,14 +4,17 @@ dependencies.vcheck()
 
 import pages, os, subprocess, pagegen, shutil, sys, time
 
-COPYRIGHT = open("js/copyright.js", "rb").read()
+path = '/'.join(os.path.join(os.path.dirname(__file__).split('/')[:-1])) + "/"
+
+COPYRIGHT = open(path + "js/copyright.js", "rb").read()
 
 class MinifyException(Exception):
   pass
   
 def jarit(src):
+  path = '/'.join(os.path.join(os.path.dirname(__file__).split('/')[:-1])) + "/"
   try:
-    p = subprocess.Popen(["java", "-jar", "bin/yuicompressor-2.3.5.jar", src], stdout=subprocess.PIPE)
+    p = subprocess.Popen(["java", "-jar", path + "bin/yuicompressor-2.3.5.jar", src], stdout=subprocess.PIPE)
   except Exception, e:
     if hasattr(e, "errno") and e.errno == 2:
       raise MinifyException, "unable to run java"
@@ -67,6 +70,9 @@ def merge_files(output, files, root_path=lambda x: x):
   f.close()
 
 def main(outputdir=".", produce_debug=True):
+
+  outputdir = '/'.join(os.path.join(os.path.dirname(__file__).split('/')[:-1])) + "/"
+
   ID = pagegen.gethgid()
   
   pagegen.main(outputdir, produce_debug=produce_debug)
@@ -86,7 +92,8 @@ def main(outputdir=".", produce_debug=True):
 
   for uiname, value in pages.UIs.items():
     csssrc = pagegen.csslist(uiname, True)
-    jmerge_files(outputdir, "css", uiname + "-" + ID, csssrc)
+    path = '/'.join(os.path.join(os.path.dirname(__file__).split('/')[:-1])) + "/"
+    jmerge_files(outputdir, "css", uiname + "-" + ID, [path + src for src in csssrc])
     shutil.copy2(os.path.join(outputdir, "static", "css", uiname + "-" + ID + ".css"), os.path.join(outputdir, "static", "css", uiname + ".css"))
     
     mcssname = os.path.join("css", uiname + ".mcss")
@@ -99,13 +106,13 @@ def main(outputdir=".", produce_debug=True):
     
     alljs = []
     for y in pages.JS_BASE:
-      alljs.append(os.path.join("static", "js", y + ".js"))
+      alljs.append(os.path.join(outputdir, "static", "js", y + ".js"))
     for y in value.get("buildextra", []):
-      alljs.append(os.path.join("static", "js", "%s.js" % y))
+      alljs.append(os.path.join(outputdir, "static", "js", "%s.js" % y))
     for y in pages.DEBUG_BASE:
-      alljs.append(os.path.join("js", y + ".js"))
+      alljs.append(os.path.join(outputdir, "js", y + ".js"))
     for y in value["uifiles"]:
-      alljs.append(os.path.join("js", "ui", "frontends", y + ".js"))
+      alljs.append(os.path.join(outputdir, "js", "ui", "frontends", y + ".js"))
     jmerge_files(outputdir, "js", uiname + "-" + ID, alljs, file_prefix="QWEBIRC_BUILD=\"" + ID + "\";\n")
     
   os.rmdir(coutputdir)

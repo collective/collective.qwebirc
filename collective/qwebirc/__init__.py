@@ -7,7 +7,9 @@ compile.vcheck()
 DEFAULT_PORT = 9090
 
 from optparse import OptionParser
-import sys, os, config
+import sys, os
+
+from collective.qwebirc import config
 
 def run_twistd(args1=None, args2=None):
   from twisted.scripts.twistd import run

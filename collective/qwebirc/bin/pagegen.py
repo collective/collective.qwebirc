@@ -86,6 +86,7 @@ def producehtml(name, debug):
 """ % (ui["doctype"], config.APP_TITLE, config.STATIC_BASE_URL, csshtml, customjs, jshtml, ui["class"], optionsgen.get_options(), div)
 
 def main(outputdir=".", produce_debug=True):
+  outputdir = '/'.join(os.path.join(os.path.dirname(__file__).split('/')[:-1])) + "/"
   p = os.path.join(outputdir, "static")
   for x in pages.UIs:
     if produce_debug:
