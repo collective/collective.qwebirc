@@ -1,4 +1,6 @@
-import os, sys, pages, subprocess, re, optionsgen, config
+import os, sys, pages, subprocess, re, optionsgen
+
+from collective.qwebirc import config
 
 class HGException(Exception):
   pass

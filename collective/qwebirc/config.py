@@ -177,6 +177,7 @@ ADMIN_ENGINE_HOSTS = ["127.0.0.1"]
 #         These arguments will be used as if qwebirc was run directly
 #         with them, see run.py --help for a list of options.
 #ARGS = "-n -p 3989"
+ARGS = "-n" 
 
 # OPTION: SYSLOG_ADDR (optional)
 #         Used in conjunction with util/syslog.py and -s option.
