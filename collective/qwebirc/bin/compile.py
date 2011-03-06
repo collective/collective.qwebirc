@@ -4,7 +4,9 @@ dependencies.vcheck()
 
 import pages, os, subprocess, pagegen, shutil, sys, time
 
-COPYRIGHT = open("js/copyright.js", "rb").read()
+path = "/".join(os.path.join(os.path.dirname(__file__).split("/"))[:-1]) + "/"
+
+COPYRIGHT = open(path + "js/copyright.js", "rb").read()
 
 class MinifyException(Exception):
   pass
