@@ -69,6 +69,10 @@ def merge_files(output, files, root_path=lambda x: x):
   f.close()
 
 def main(outputdir=".", produce_debug=True):
+
+  path = "/".join(os.path.join(os.path.dirname(__file__).split("/"))[:-1]) + "/"
+  outputdir = path
+
   ID = pagegen.gethgid()
   
   pagegen.main(outputdir, produce_debug=produce_debug)
