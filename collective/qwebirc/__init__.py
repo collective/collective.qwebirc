@@ -10,15 +10,15 @@ from optparse import OptionParser
 import sys, os, config
 
 def run_twistd(args1=None, args2=None):
-  from twisted.scripts.twistd import run
-  args = [sys.argv[0]]
-  if args1 is not None:
-    args.extend(args1)
-  args.append("qwebirc")
-  if args2 is not None:
-    args.extend(args2)
-  sys.argv = args
-  run()
+  from twisted.scripts.twistd import run as twisted_scripts_twistd_run
+#  args = [sys.argv[0]]
+#  if args1 is not None:
+#    args.extend(args1)
+#  args.append("qwebirc")
+#  if args2 is not None:
+#    args.extend(args2)
+#  sys.argv = args
+  twisted_scripts_twistd_run()
   
 def help_reactors(*args):
   run_twistd(["--help-reactors"])
