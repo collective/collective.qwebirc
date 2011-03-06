@@ -115,7 +115,7 @@ def check_twisted():
     twisted_fail("words")
     
 def check_json():
-  from qwebirc.util.qjson import slow
+  from collective.qwebirc.qwebirc.util.qjson import slow
   if slow:
     warn("simplejson module with C speedups not installed.",
          "using embedded module (slower); consider installing simplejson from:",
