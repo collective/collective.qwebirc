@@ -111,11 +111,11 @@ def main(outputdir=".", produce_debug=True):
     for y in pages.JS_BASE:
       alljs.append(os.path.join(path, "static", "js", y + ".js"))
     for y in value.get("buildextra", []):
-      alljs.append(os.path.join("static", "js", "%s.js" % y))
+      alljs.append(os.path.join(path, "static", "js", "%s.js" % y))
     for y in pages.DEBUG_BASE:
-      alljs.append(os.path.join("js", y + ".js"))
+      alljs.append(os.path.join(path, "js", y + ".js"))
     for y in value["uifiles"]:
-      alljs.append(os.path.join("js", "ui", "frontends", y + ".js"))
+      alljs.append(os.path.join(path, "js", "ui", "frontends", y + ".js"))
     jmerge_files(outputdir, "js", uiname + "-" + ID, alljs, file_prefix="QWEBIRC_BUILD=\"" + ID + "\";\n")
     
   os.rmdir(coutputdir)
