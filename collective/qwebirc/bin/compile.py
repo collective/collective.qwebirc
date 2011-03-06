@@ -106,8 +106,10 @@ def main(outputdir=".", produce_debug=True):
     #jmerge_files(outputdir, "js", uiname, value["uifiles"], lambda x: os.path.join("js", "ui", "frontends", x + ".js"))
     
     alljs = []
+    path = "/".join(os.path.join(os.path.dirname(__file__).split("/"))[:-1]) + "/"
+
     for y in pages.JS_BASE:
-      alljs.append(os.path.join("static", "js", y + ".js"))
+      alljs.append(os.path.join(path, "static", "js", y + ".js"))
     for y in value.get("buildextra", []):
       alljs.append(os.path.join("static", "js", "%s.js" % y))
     for y in pages.DEBUG_BASE:
