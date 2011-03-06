@@ -86,9 +86,11 @@ def main(outputdir=".", produce_debug=True):
   
   #jmerge_files(outputdir, "js", "qwebirc", pages.DEBUG_BASE, lambda x: os.path.join("js", x + ".js"))
 
+  path = "/".join(os.path.join(os.path.dirname(__file__).split("/"))[:-1]) + "/"
+
   for uiname, value in pages.UIs.items():
     csssrc = pagegen.csslist(uiname, True)
-    jmerge_files(outputdir, "css", uiname + "-" + ID, csssrc)
+    jmerge_files(outputdir, "css", uiname + "-" + ID, [path + src for src in csssrc])
     shutil.copy2(os.path.join(outputdir, "static", "css", uiname + "-" + ID + ".css"), os.path.join(outputdir, "static", "css", uiname + ".css"))
     
     mcssname = os.path.join("css", uiname + ".mcss")
