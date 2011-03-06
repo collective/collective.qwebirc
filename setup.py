@@ -9,5 +9,9 @@ setup(
     install_requires=[
         'Twisted',
         'setuptools'
-    ]
+    ],
+    entry_point="""
+    [z3c.autoinclude.plugin]
+    target = plone
+    """
 )
