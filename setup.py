@@ -10,7 +10,7 @@ setup(
         'Twisted',
         'setuptools'
     ],
-    entry_point="""
+    entry_points="""
     [z3c.autoinclude.plugin]
     target = plone
     """
