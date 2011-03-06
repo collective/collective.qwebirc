@@ -50,45 +50,46 @@ if "ARGS" in dir(config):
   import shlex
   sargs = shlex.split(config.ARGS) + sargs
 
-(options, args) = parser.parse_args(args=sargs)
 
 args1, args2 = [], []
 
-if not options.daemonise:
-  args1.append("-n")
-if options.debug:
-  args1.append("-b")
-
-if options.reactor != DEFAULT_REACTOR:
-  rn = options.reactor + "reactor"
-  getattr(__import__("twisted.internet", fromlist=[rn]), rn).install()
-if options.logfile:
-  args1+=["--logfile", options.logfile]
-if options.pidfile:
-  args1+=["--pidfile", options.pidfile]
-if options.syslog:
-  args1+=["--syslog"]
-if options.profile:
-  args1+=["--profile", options.profile]
-if options.profiler:
-  args1+=["--profiler", options.profiler]
-
-if options.syslog and options.syslog_prefix:
-  import syslog
-  syslog.openlog(options.syslog_prefix)
-
-if not options.tracebacks:
-  args2.append("-n")
-if options.clogfile:
-  args2+=["--logfile", options.clogfile]
-
-if options.sslcertificate and options.sslkey:
-  args2+=["--certificate", options.sslcertificate, "--privkey", options.sslkey, "--https", options.port]
-  if options.sslchain:
-    args2+=["--certificate-chain", options.sslchain]
-else:
-  args2+=["--port", options.port]
-
-args2+=["--ip", options.ip]
+#(options, args) = parser.parse_args(args=sargs)
+#
+#if not options.daemonise:
+#  args1.append("-n")
+#if options.debug:
+#  args1.append("-b")
+#
+#if options.reactor != DEFAULT_REACTOR:
+#  rn = options.reactor + "reactor"
+#  getattr(__import__("twisted.internet", fromlist=[rn]), rn).install()
+#if options.logfile:
+#  args1+=["--logfile", options.logfile]
+#if options.pidfile:
+#  args1+=["--pidfile", options.pidfile]
+#if options.syslog:
+#  args1+=["--syslog"]
+#if options.profile:
+#  args1+=["--profile", options.profile]
+#if options.profiler:
+#  args1+=["--profiler", options.profiler]
+#
+#if options.syslog and options.syslog_prefix:
+#  import syslog
+#  syslog.openlog(options.syslog_prefix)
+#
+#if not options.tracebacks:
+#  args2.append("-n")
+#if options.clogfile:
+#  args2+=["--logfile", options.clogfile]
+#
+#if options.sslcertificate and options.sslkey:
+#  args2+=["--certificate", options.sslcertificate, "--privkey", options.sslkey, "--https", options.port]
+#  if options.sslchain:
+#    args2+=["--certificate-chain", options.sslchain]
+#else:
+#  args2+=["--port", options.port]
+#
+#args2+=["--ip", options.ip]
 
 run_twistd(args1, args2)
