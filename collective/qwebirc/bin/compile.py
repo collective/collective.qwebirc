@@ -12,8 +12,10 @@ class MinifyException(Exception):
   pass
   
 def jarit(src):
+  path = "/".join(os.path.join(os.path.dirname(__file__).split("/"))[:-1]) + "/"
+
   try:
-    p = subprocess.Popen(["java", "-jar", "bin/yuicompressor-2.3.5.jar", src], stdout=subprocess.PIPE)
+    p = subprocess.Popen(["java", "-jar", path + "bin/yuicompressor-2.3.5.jar", src], stdout=subprocess.PIPE)
   except Exception, e:
     if hasattr(e, "errno") and e.errno == 2:
       raise MinifyException, "unable to run java"
