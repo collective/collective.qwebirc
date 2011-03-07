@@ -4,8 +4,9 @@ from twisted.internet import reactor, protocol, abstract
 from twisted.web import resource, server
 from twisted.protocols import basic
 from twisted.names.client import Resolver
-import hmac, time, config, random, qwebirc.config_options as config_options
-from config import HMACTEMPORAL
+import hmac, time, random, collective.qwebirc.qwebirc.config_options as config_options
+from collective.qwebirc import config
+from collective.qwebirc.config import HMACTEMPORAL
 
 if config.get("CONNECTION_RESOLVER"):
   CONNECTION_RESOLVER = Resolver(servers=config.get("CONNECTION_RESOLVER"))

@@ -4,11 +4,11 @@ from twisted.internet import reactor, error
 from authgateengine import login_optional, getSessionData
 import md5, sys, os, time, collective.qwebirc.qwebirc.config_options as config_options, traceback, socket
 from collective.qwebirc import config
-import qwebirc.ircclient as ircclient
+import collective.qwebirc.qwebirc.ircclient as ircclient
 from adminengine import AdminEngineAction
-from qwebirc.util import HitCounter
-import qwebirc.dns as qdns
-import qwebirc.util.qjson as json
+from collective.qwebirc.qwebirc.util import HitCounter
+import collective.qwebirc.qwebirc.dns as qdns
+import collective.qwebirc.qwebirc.util.qjson as json
 Sessions = {}
 
 def get_session_id():
