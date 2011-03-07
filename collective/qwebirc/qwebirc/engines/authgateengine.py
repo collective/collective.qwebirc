@@ -1,5 +1,6 @@
 from twisted.web import resource, server, static
-import config, urlparse, urllib, hashlib, re
+from collective.qwebirc import config
+import urlparse, urllib, hashlib, re
 import qwebirc.util.rijndael, qwebirc.util.ciphers
 import qwebirc.util
 
