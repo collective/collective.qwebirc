@@ -2,7 +2,8 @@ from twisted.web import resource, server, static, error as http_error
 from twisted.names import client
 from twisted.internet import reactor, error
 from authgateengine import login_optional, getSessionData
-import md5, sys, os, time, config, qwebirc.config_options as config_options, traceback, socket
+import md5, sys, os, time, collective.qwebirc.qwebirc.config_options as config_options, traceback, socket
+from collective.qwebirc import config
 import qwebirc.ircclient as ircclient
 from adminengine import AdminEngineAction
 from qwebirc.util import HitCounter
