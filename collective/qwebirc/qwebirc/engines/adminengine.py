@@ -1,7 +1,8 @@
 from twisted.web import resource, server, static
 from cgi import escape
 from urllib import urlencode
-import config, copy, time
+from collective.qwebirc import config
+import copy, time
 
 HEADER = """
 <html><head><link rel="stylesheet" href="/css/qui.css"></link><link rel="stylesheet" href="/css/dialogs.css"></link></head><body class="qwebirc-qui">

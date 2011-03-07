@@ -1,6 +1,6 @@
 from twisted.web import resource, server, static, error
-from qwebirc.util.gziprequest import GZipRequest
-import qwebirc.util as util
+from collective.qwebirc.qwebirc.util.gziprequest import GZipRequest
+import collective.qwebirc.qwebirc.util as util
 import pprint
 from adminengine import AdminEngineAction
 
