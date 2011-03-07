@@ -3,8 +3,8 @@ from twisted.mail.smtp import SMTPSenderFactory, ESMTPSenderFactory
 from twisted.internet import defer, reactor
 from StringIO import StringIO
 from email.mime.text import MIMEText
-import qwebirc.util as util
-import config
+import collective.qwebirc.qwebirc.util as util
+import collective.qwebirc.config as config
 
 class FeedbackException(Exception):
   pass
