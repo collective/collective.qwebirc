@@ -1,8 +1,8 @@
 from twisted.web import resource, server, static, http
 from twisted.internet import error, reactor
-import engines
+from collective.qwebirc.qwebirc import engines
 import mimetypes
-import config
+import collective.qwebirc.config as config
 import sigdebug
 import re
 
