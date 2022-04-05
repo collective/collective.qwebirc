@@ -8,10 +8,10 @@ def check_dependencies():
     
   major, minor = sys.version_info[:2]
   if major >= 3:
-    fail("qwebirc cannot run on python >=3 yet, install python 2.6.X:\nhttp://www.python.org/download/")
+    fail("qwebirc cannot run on python >=3 yet, install python 2.6.X:\nhttps://www.python.org/download/")
     
   if major < 2 or minor < 5:
-    fail("qwebirc requires python 2.5, you have: %s, install python 2.6.X:\nhttp://www.python.org/download/" % ".".join(map(str, sys.version_info[:3])))
+    fail("qwebirc requires python 2.5, you have: %s, install python 2.6.X:\nhttps://www.python.org/download/" % ".".join(map(str, sys.version_info[:3])))
 	
   # this is done so we can use Python 2.5 syntax...
   import dependencies_b

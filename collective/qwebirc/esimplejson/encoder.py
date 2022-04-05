@@ -84,7 +84,7 @@ except NameError:
 
 class JSONEncoder(object):
     """
-    Extensible JSON <http://json.org> encoder for Python data structures.
+    Extensible JSON <https://json.org> encoder for Python data structures.
 
     Supports the following objects and types by default:
     
