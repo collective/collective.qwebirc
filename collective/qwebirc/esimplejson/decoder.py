@@ -245,7 +245,7 @@ JSONScanner = Scanner(ANYTHING)
 
 class JSONDecoder(object):
     """
-    Simple JSON <http://json.org> decoder
+    Simple JSON <https://json.org> decoder
 
     Performs the following translations in decoding by default:
     

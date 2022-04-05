@@ -38,11 +38,11 @@ def check_win32():
   try:
     import win32con
   except ImportError:
-    fail("qwebirc requires pywin32, see:", "http://sourceforge.net/project/showfiles.php?group_id=78018")
+    fail("qwebirc requires pywin32, see:", "https://sourceforge.net/project/showfiles.php?group_id=78018")
   
 def check_java():
   def java_warn(specific):
-    warn(specific, "java is not required, but allows qwebirc to compress output,", "making it faster to download.", "you can get java at http://www.java.com/")
+    warn(specific, "java is not required, but allows qwebirc to compress output,", "making it faster to download.", "you can get java at https://www.java.com/")
     
   try:
     p = subprocess.Popen(["java", "-version"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -58,7 +58,7 @@ def check_java():
   
 def check_hg():
   def hg_warn(specific):
-    warn(specific, "mercurial (hg) is not required, but allows qwebirc to save bandwidth by versioning.", "you can get hg at http://www.selenic.com/mercurial/")
+    warn(specific, "mercurial (hg) is not required, but allows qwebirc to save bandwidth by versioning.", "you can get hg at https://www.selenic.com/mercurial/")
     
   try:
     p = subprocess.Popen(["hg", "id"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -78,17 +78,17 @@ def check_zope():
   except ImportError:
     if sys.platform.startswith("win"):
       fail("qwebirc requires zope interface",
-           "see pypi: http://pypi.python.org/pypi/zope.interface")
+           "see pypi: https://pypi.python.org/pypi/zope.interface")
     else:
       fail("qwebirc requires zope interface.",
            "this should normally come with twisted, but can be downloaded",
-           "from pypi: http://pypi.python.org/pypi/zope.interface")
+           "from pypi: https://pypi.python.org/pypi/zope.interface")
            
 def check_twisted():
   try:
     import twisted
   except ImportError:
-    fail("qwebirc requires twisted (at least 8.2.0), see http://twistedmatrix.com/")
+    fail("qwebirc requires twisted (at least 8.2.0), see https://twistedmatrix.com/")
 
   def twisted_fail(x, y=None):
     fail("you don't seem to have twisted's %s module." % x,
@@ -119,7 +119,7 @@ def check_json():
   if slow:
     warn("simplejson module with C speedups not installed.",
          "using embedded module (slower); consider installing simplejson from:",
-         "http://pypi.python.org/pypi/simplejson/")
+         "https://pypi.python.org/pypi/simplejson/")
     return 1
   return 0
   

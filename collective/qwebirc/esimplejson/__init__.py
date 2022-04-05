@@ -1,7 +1,7 @@
 r"""
 A simple, fast, extensible JSON encoder and decoder
 
-JSON (JavaScript Object Notation) <http://json.org> is a subset of
+JSON (JavaScript Object Notation) <https://json.org> is a subset of
 JavaScript syntax (ECMA-262 3rd edition) used as a lightweight data
 interchange format.
 
@@ -371,7 +371,7 @@ def write(obj):
 
 #
 # Pretty printer:
-#     curl http://mochikit.com/examples/ajax_tables/domains.json | python -msimplejson
+#     curl https://mochikit.com/examples/ajax_tables/domains.json | python -msimplejson
 #
 
 
